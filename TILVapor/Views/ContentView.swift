@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var someThings = SomeThingStore()
     @State private var showAddSomeThings = false
-//    let tempThings = ["SSSV", "IOSA"]
+
+    @StateObject private var someThings = SomeThingStore()
+
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
@@ -25,7 +26,7 @@ struct ContentView: View {
                 Spacer()
             }
             .sheet(isPresented: $showAddSomeThings) {
-                AddSomeThingView(someThings: $someThings)
+                AddSomeThingView(someThings: someThings)
             }
             .navigationTitle("Things I Learned")
             .toolbar {

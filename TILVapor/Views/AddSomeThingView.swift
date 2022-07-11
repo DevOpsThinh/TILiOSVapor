@@ -12,7 +12,7 @@ struct AddSomeThingView: View {
 
     @State private var thing = ""
 
-    @Binding var someThings: SomeThingStore
+    @ObservedObject var someThings: SomeThingStore
 
     var body: some View {
         VStack {
@@ -34,6 +34,6 @@ struct AddSomeThingView: View {
 
 struct AddSomeThingView_Previews: PreviewProvider {
     static var previews: some View {
-        AddSomeThingView(someThings: .constant(SomeThingStore()))
+        AddSomeThingView(someThings: SomeThingStore())
     }
 }

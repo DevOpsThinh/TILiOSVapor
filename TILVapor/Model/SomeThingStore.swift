@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct SomeThingStore {
-    var things: [String] = []
+final class SomeThingStore: ObservableObject {
+    @Published var things: [String] = []
 }
