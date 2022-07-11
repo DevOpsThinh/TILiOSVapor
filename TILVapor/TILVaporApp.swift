@@ -12,6 +12,7 @@ struct TILVaporApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.textCase, .uppercase)
         }
     }
 }
