@@ -8,39 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showAddSomeThings = false
-
-    @StateObject private var someThings = SomeThingStore()
 
     var body: some View {
-        NavigationView {
-            VStack(spacing: 20) {
-                if someThings.things.isEmpty {
-                    Text("Add acronyms you learn")
-                        .foregroundColor(.gray)
+        TabView {
+            TerminologiesView()
+                .badge(10)
+                .tabItem {
+                    Image(systemName: "character.book.closed.fill")
+                    Text("Terms")
                 }
-
-                ForEach(someThings.things, id: \.self) { i in
-                    Text(i)
+            UsersView()
+                .tabItem {
+                    Image(systemName: "person.2.fill")
+                    Text("Users")
                 }
-                Spacer()
-            }
-            .sheet(isPresented: $showAddSomeThings) {
-                AddSomeThingView(someThings: someThings)
-            }
-            .navigationTitle("Things I Learned")
-            .toolbar {
-                ToolbarItem {
-                    Button(action: {
-                        showAddSomeThings.toggle()
-                    }) {
-                        Image(systemName: "plus.circle")
-                            .font(.title)
-                    }
+            CategoriesView()
+                .tabItem {
+                    Image(systemName: "tag.fill")
+                    Text("Categories")
                 }
-            }
-
         }
+        .font(.headline)
     }
 }
 

@@ -16,7 +16,7 @@ struct AddSomeThingView: View {
 
     var body: some View {
         VStack {
-            TextField("Thing I Learned", text: $thing)
+            TextField("Terminology I Learned", text: $thing)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 .disableAutocorrection(true)
